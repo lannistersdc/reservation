@@ -1,17 +1,24 @@
 {
-  "name": "",
-  "version": "",
-  "description": "",
-  "author": "",
-  "license": "",
+  "name": "reservation",
+  "version": "1.0.0",
+  "description": "Microservice for opentable.com app",
+  "author": "Daniel",
   "engines": {
     "node": ">=6.13.0"
   },
   "scripts": {
+    "start": "nodemon server/index.js",
+    "build": "webpack -d --watch",
+    "seed": "node data/dataGenerator.js"
   },
   "dependencies": {
+    "axios": "^0.18.0",
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "mongoose": "^5.4.20",
+    "morgan": "^1.9.1",
+    "react": "^16.8.5",
+    "react-dom": "^16.8.6"
   },
-  "devDependencies": {
-    "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor"
-  }
+  "devDependencies": {}
 }
