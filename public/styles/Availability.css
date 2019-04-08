@@ -1,0 +1,46 @@
+.default {
+  min-width: 72px;
+  height: 32px;
+  font-size: .875rem;
+  background-color: #da3743;
+  cursor: pointer;
+  border-radius: 2px;
+  text-align: center;
+  color: #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 0 .25rem;
+  font-family: BrandonText,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
+  -webkit-font-smoothing: antialiased;
+}
+
+.container {
+  margin-right: .5rem;
+  margin-bottom: .5rem;
+  display: inline-block;
+  vertical-align: top;
+  text-decoration: none;
+}
+
+.header {
+  font-family: BrandonText,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
+  -webkit-font-smoothing: antialiased;
+  margin: 0 0 .5rem;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 24px;
+}
+
+.timeSelectionGrid {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-column-gap: 8px;
+  grid-row-gap: 8px;
+}

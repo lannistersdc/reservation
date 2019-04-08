@@ -3,7 +3,10 @@ const mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/opentable');
 
 const reservationSchema = new mongoose.Schema({
-  restaurantID: Number,
+  restaurantID: {
+    type: Number,
+    unique: true,
+  },
   restaurantCrossStreet: String,
   restaurantNeighborhood: String,
   restaurantHoursOfOperation: Array,

@@ -1,0 +1,15 @@
+.masterContainer {
+  display: flex;
+  max-width: 992px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.reservationMod {
+  width: 320px;
+  margin: 0 0 0 1rem;
+}
+
+.mapDescriptionContainer {
+  background-color: #fff;
+}
