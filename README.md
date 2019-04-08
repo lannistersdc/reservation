@@ -1,13 +1,12 @@
 # Project Name
 
-> Project description
+> Rebuild of opentable website
 
 ## Related Projects
 
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
+  - https://github.com/hrla28-open-table-app/navbar
+  - https://github.com/hrla28-open-table-app/OpenTable-Reviews
+  - https://github.com/hrla28-open-table-app/reservation
 
 ## Table of Contents
 
@@ -17,7 +16,9 @@
 
 ## Usage
 
-> Some usage instructions
+> npm install
+> npm start
+> npm run build
 
 ## Requirements
 
@@ -27,13 +28,3 @@ An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
 - etc
 
 ## Development
-
-### Installing Dependencies
-
-From within the root directory:
-
-```sh
-npm install -g webpack
-npm install
-```
-

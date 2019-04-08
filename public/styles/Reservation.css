@@ -1,0 +1,230 @@
+.default {
+  font-family: BrandonText, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+    Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji,
+    Segoe UI Symbol;
+  -webkit-font-smoothing: antialiased;
+  background-color: #fff;
+  display: block;
+  box-shadow: 0 2px 8px rgba(153,153,153,.4);
+  margin-bottom: 1rem;
+  position: sticky;
+  top: 0;
+}
+
+.header {
+  display: flex;
+  text-align: center;
+  justify-content: flex-end;
+  height: 48px;
+  flex-direction: column;
+  padding: 0 1rem;
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
+}
+
+.selectionContainer {
+  padding-top: .5rem;
+  display: block;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-font-smoothing: antialiased;
+}
+
+.header h3 {
+  font-size: 19px;
+  font-weight: 700;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  border-bottom: 1px solid #d8d9db;
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+.subcontainer {
+  padding: .5rem 1rem 1rem;
+  border-bottom-left-radius: 2px;
+  border-bottom-right-radius: 2px;
+  background-color: #fff;
+}
+
+.button {
+  background-color: #da3743;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 500;
+  border-radius: 2px;
+  width: 18rem;
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+  margin: .75rem auto 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+.partyContainer {
+  font-size: .875rem;
+  font-weight: 500;
+  padding-bottom: .25rem;
+}
+
+.partyHeader {
+  padding-bottom: .25rem;
+}
+
+.selectionIconContainer {
+  display: flex;
+}
+
+.selectionIconContainer option:focus {
+  content: "For";
+}
+
+.partySelector {
+  font-size: 0.875rem;
+  -webkit-font-smoothing: antialiased;
+  width: 18rem;
+  height: 35px;
+  border: none;
+  border-radius: 0;
+  border-bottom: 1px solid #d8d9db;
+  box-shadow: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: #fff url(https://s3-us-west-1.amazonaws.com/open-table-reservation-svg/arrow.svg) no-repeat right;
+  background-size: 16px 16px;
+}
+
+.partySelector:hover {
+  content: "";
+  position: static;
+  right: .5rem;
+  bottom: 0;
+  left: .5rem;
+  border-bottom: 2px solid #da3743;
+}
+
+.partySelector:focus {
+  outline: none;
+}
+
+.partySelector select {
+  display: none;
+}
+
+.partySelector option {
+  font-weight: 400;
+}
+
+.partySelectorDiv {
+  position: absolute;
+  background-color: #fff;
+  box-sizing: border-box;
+  display: inline-block;
+  width: 270px;
+  -webkit-box-align: center;
+  align-items: center;
+  padding-top: 7px;
+  font-weight: 400;
+  pointer-events: none;
+  border: 0;
+}
+
+.timeSelectionIconContainer {
+  display: flex;
+}
+
+.timeSelectionIconContainer svg {
+  position: absolute;
+  top: 0;
+  right: 9px;
+  height: 100%;
+  width: .5rem;
+  fill: #6f737b;
+  pointer-events: none;
+}
+
+.timeSelectionIconContainer svg:not(:root) {
+  width: 15px;
+  height: 15px;
+}
+
+.timeSelectionIconContainer svg:not(:root) {
+  overflow: hidden;
+}
+
+
+.timeContainer {
+  font-size: .875rem;
+  font-weight: 500;
+  padding-bottom: .25rem;
+  flex: 1 50%;
+  margin-left: .5rem;
+}
+
+.timeHeader {
+  padding-bottom: .25rem;
+}
+
+.dateTimeContainer {
+  display: flex;
+  flex: 1 100%;
+  margin-top: 0.5rem;
+}
+
+.dateTimeSelector {
+  font-size: 0.875rem;
+  -webkit-font-smoothing: antialiased;
+  width: 9rem;
+  height: 35px;
+  border: none;
+  border-radius: 0;
+  border-bottom: 1px solid #d8d9db;
+  box-shadow: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: #fff url(https://s3-us-west-1.amazonaws.com/open-table-reservation-svg/arrow.svg) no-repeat right;
+  background-size: 16px 16px;
+}
+
+.dateTimeSelector:hover {
+  content: "";
+  position: static;
+  right: .5rem;
+  bottom: 0;
+  left: .5rem;
+  border-bottom: 2px solid #da3743;
+}
+
+.dateTimeSelector:focus {
+  outline: none;
+}
+
+.dateTimeSelector select {
+  display: none;
+}
+
+.bookCountContainer {
+  display: flex;
+  margin: 1rem 0 0;
+}
+
+.bookCountInfo {
+  margin: 0 0 0 .25rem;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  align-self: center;
+  -webkit-font-smoothing: antialiased;
+}
