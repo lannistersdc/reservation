@@ -1,0 +1,134 @@
+.reservationCalendar {
+  font-family: BrandonText,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
+}
+
+.reservationCalendar .SingleDatePickerInput__withBorder {
+  border-radius: none;
+}
+
+.reservationCalendar .DateInput_input {
+  font-weight: 400;
+  font-family: BrandonText,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
+  font-size: 0.875rem;
+  -webkit-font-smoothing: antialiased;
+  line-height: 24px;
+  color: #212529;
+  background-color: #fff;
+  height: 35px;
+  padding: 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: 0;
+  border-bottom: 1px solid #d8d9db;
+  border-top: 0;
+  border-right: 0;
+  border-left: 0;
+  border-radius: 0;
+  background: #fff url(https://s3-us-west-1.amazonaws.com/open-table-reservation-svg/arrow.svg) no-repeat right;
+  background-size: 16px 16px;
+}
+
+.reservationCalendar .DateInput_input::placeholder {
+  color: #212529;
+}
+
+.reservationCalendar .DayPicker.DayPicker_1.DayPicker__horizontal.DayPicker__horizontal_2.DayPicker__withBorder.DayPicker__withBorder_3 {
+  background-color: #f1f2f4;
+}
+
+.reservationCalendar .CalendarMonth {
+  background-color: #f1f2f4;
+}
+
+.reservationCalendar .CalendarMonthGrid.CalendarMonthGrid_1.CalendarMonthGrid__horizontal.CalendarMonthGrid__horizontal_2 {
+  background-color: #f1f2f4;
+}
+
+.reservationCalendar .DayPicker_weekHeader.DayPicker_weekHeader_1 {
+  font-family: BrandonText,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
+  -webkit-font-smoothing: antialiased;
+  color: #2d333f;
+  font-size: 14px;
+}
+
+.reservationCalendar .SingleDatePickerInput:hover {
+  content: "";
+  position: static;
+  right: .5rem;
+  bottom: 0;
+  left: .5rem;
+  border-bottom: 2.25px solid #da3743;
+  padding-bottom: 0;
+}
+
+
+.reservationCalendar .DateInput_input__focused {
+  right: .5rem;
+  bottom: 0;
+  left: .5rem;
+  border-bottom: 2px solid #da3743;
+}
+
+.reservationCalendar .CalendarDay__default:hover {
+  background: #fff;
+  border-top: 3.2px solid #da3743;
+  border-left: 3.2px solid #da3743;
+  border-right: 3px solid #da3743;
+  border-bottom: 3px solid #da3743;
+}
+
+.reservationCalendar .CalendarDay__selected {
+  background: #fff;
+  border-top: 3.2px solid #da3743;
+  border-left: 3.2px solid #da3743;
+  border-right: 3px solid #da3743;
+  border-bottom: 3px solid #da3743;
+  color: #212529;
+}
+
+.reservationCalendar .DayPickerNavigation_button__horizontalDefault {
+  padding: 0;
+  border-radius: 500px;
+  width: 32px;
+  height: 32px;
+  position: absolute;
+  background: #f1f2f4 url(https://s3-us-west-1.amazonaws.com/open-table-reservation-svg/arrow-right.svg) no-repeat center;
+}
+
+.reservationCalendar .DayPickerNavigation_button.DayPickerNavigation_button_1.DayPickerNavigation_button__default.DayPickerNavigation_button__default_2.DayPickerNavigation_button__horizontal.DayPickerNavigation_button__horizontal_3.DayPickerNavigation_button__horizontalDefault.DayPickerNavigation_button__horizontalDefault_4.DayPickerNavigation_leftButton__horizontalDefault.DayPickerNavigation_leftButton__horizontalDefault_5 {
+  transform: rotate(180deg);
+}
+
+.reservationCalendar .DayPickerNavigation_button__default:focus, .DayPickerNavigation_button__default:hover {
+  border: 2px solid #da3743 !important;
+  outline: none;
+}
+
+.reservationCalendar .DayPickerNavigation_svg__horizontal.DayPickerNavigation_svg__horizontal_1 {
+  display: none;
+}
+
+.reservationCalendar .CalendarMonth_caption {
+  font-size: 16px;
+  color: #000000;
+}
+
+.reservationCalendar .CalendarDay {
+  font-family: BrandonText,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
+  font-size: 15px;
+  font-weight: 600;
+  -webkit-font-smoothing: antialiased;
+}
+
+.reservationCalendar .CalendarDay.CalendarDay_1.CalendarDay__defaultCursor.CalendarDay__defaultCursor_2.CalendarDay__default.CalendarDay__default_3.CalendarDay__outside.CalendarDay__outside_4.CalendarDay__firstDayOfWeek.CalendarDay__firstDayOfWeek_5.CalendarDay__blocked_out_of_range.CalendarDay__blocked_out_of_range_6 {
+  background-color: #f1f2f4;
+}
+
+.reservationCalendar .CalendarDay__outside {
+  border: 1px solid #e4e7e7;
+}
+
+.reservationCalendar .CalendarDay.CalendarDay_1.CalendarDay__default.CalendarDay__default_2.CalendarDay__outside.CalendarDay__outside_3 {
+  background-color: #f1f2f4;
+}

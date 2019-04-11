@@ -5,7 +5,7 @@ class ReservationParty extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      selected: null,
+      selected: 'For 2',
     };
     this.handleSelect = this.handleSelect.bind(this);
   }
@@ -13,18 +13,19 @@ class ReservationParty extends React.Component {
   handleSelect(e) {
     this.setState({
       selected: e.target.value,
-    }, () => console.log(this.state));
+    });
   }
 
   render() {
+    const { selected } = this.state;
     return (
       <div className={styles.partyContainer}>
         <div className={styles.partyHeader}>Party Size</div>
         <div className={styles.selectionIconContainer}>
-          <div className={styles.partySelectorDiv}>{this.state.selected}</div>
+          <div className={styles.partySelectorDiv}>{selected}</div>
           <select onChange={this.handleSelect} className={styles.partySelector}>
             <option value="For 1">1</option>
-            <option value="For 2">2</option>
+            <option value="For 2" defaultValue="selected">2</option>
             <option value="For 3">3</option>
             <option value="For 4">4</option>
             <option value="For 5">5</option>
