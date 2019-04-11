@@ -16,7 +16,7 @@ const reservationSchema = new mongoose.Schema({
   restaurantParkingDetails: String,
   restaurantPaymentOptions: Array,
   restaurantChef: String,
-  restaurantAddtional: Array,
+  restaurantAdditional: Array,
   restaurantWebsite: String,
   restaurantPhoneNumber: String,
   restaurantBookCount: Number,

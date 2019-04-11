@@ -5,6 +5,11 @@
   margin-right: auto;
 }
 
+.mainContainer {
+  width: 640px;
+  margin: 0 1rem 0 0;
+}
+
 .reservationMod {
   width: 320px;
   margin: 0 0 0 1rem;

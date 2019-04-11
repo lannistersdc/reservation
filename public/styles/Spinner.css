@@ -1,0 +1,14 @@
+.spinner {
+  width: 3.2rem !important;
+  height: 3.2rem !important;
+  border: 0.18em solid #00000036 !important;
+  border-right-color: #da3743 !important;
+  border-radius: 50% !important;
+}
+
+@keyframes spinner {
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}

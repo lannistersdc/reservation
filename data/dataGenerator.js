@@ -35,13 +35,15 @@ const chef = ['Mireya Medina', 'Ryan DeNicola', 'Gerardo Lopez', 'Nicola Mastron
 const phoneNumber = ['(213) 827-2777', '(213) 907-9123', '(213) 691-3131', '(213) 627-2434', '(310) 826-2654', '(310) 537-7600', '(310) 760-2332', '(310) 704-6410', '(710) 627-2434', '(710) 324-2434', '(710) 899-9913', '(818) 813-1239', '(710) 913-4455', '(710) 677-9913'];
 const hoursWeekday = ['Monday - Friday: 11am - 8pm', 'Monday - Wednesday 11 AM - 10 PM Thursday - Friday 11 AM - 11 PM', 'Monday - Friday, 11:30 am - 9:00 pm'];
 const hoursWeekend = ['Saturday - Sunday: 11am - 10pm', 'Weekend Breakfast 8 AM - 12 PM Saturday Lunch/Dinner 12 PM - 11 PM Sunday Lunch/Dinner 12 PM - 10 PM', 'Saturday & Sunday, 3:00 pm - 9:00 pm'];
+const website = ['www.bestfoodla.com', 'www.lacuisine.com', 'www.topchefdining.com', 'www.goodeats.com', 'www.yummyinmytummy.com', 'www.foodcoma.com', 'www.dontbothermeimeating', 'www.toasted.com', 'www.besteats.com', 'www.eatandsleep.com'];
 
 // additional information generator
 const additionalGenerator = () => {
   const array = [];
   for (let i = 0; i < 14; i += 1) {
-    if (!array.includes(randomizer(additional))) {
-      array.push(randomizer(additional));
+    const random = randomizer(additional);
+    if (!array.includes(random)) {
+      array.push(random);
     }
   }
   return array;
@@ -93,6 +95,9 @@ const paymentOptionsGenerator = () => {
 // phone number generator
 const phoneNumberGenerator = () => randomizer(phoneNumber);
 
+// website generator
+const websiteGenerator = () => randomizer(website);
+
 // master generator
 const masterGenerator = () => {
   const array = [];
@@ -108,8 +113,8 @@ const masterGenerator = () => {
     obj.restaurantParkingDetails = parkingDetailsGenerator();
     obj.restaurantPaymentOptions = paymentOptionsGenerator();
     obj.restaurantChef = chefGenerator();
-    obj.restaurantAddtional = additionalGenerator();
-    obj.restaurantWebsite = '';
+    obj.restaurantAdditional = additionalGenerator();
+    obj.restaurantWebsite = websiteGenerator();
     obj.restaurantPhoneNumber = phoneNumberGenerator();
     obj.restaurantBookCount = bookCountGenerator();
     array.push(obj);

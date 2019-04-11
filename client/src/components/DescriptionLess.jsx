@@ -2,141 +2,157 @@ import React from 'react';
 import SVG from 'react-inlinesvg';
 import styles from '../../../public/styles/Description.css';
 
-const DescriptionLess = () => (
-  <div>
-    <div className={styles.default}>
-      <div className={styles.iconInfoContainer}>
-        <div>
-          <SVG src="https://s3-us-west-1.amazonaws.com/open-table-reservation-svg/cross-street-icon.svg" />
-        </div>
-        <div className={styles.infoContainer}>
+const DescriptionLess = (props) => {
+  const {
+    data,
+    hours,
+    payments,
+    additional,
+  } = props;
+  return (
+    <div>
+      <div className={styles.default}>
+        <div className={styles.iconInfoContainer}>
           <div>
-            <span className={styles.infoHeader}>Cross Street</span>
+            <SVG src="https://s3-us-west-1.amazonaws.com/open-table-reservation-svg/cross-street-icon.svg" />
+          </div>
+          <div className={styles.infoContainer}>
             <div>
-              <span>57th St</span>
+              <span className={styles.infoHeader}>Cross Street</span>
+              <div>
+                <span>{data.restaurantCrossStreet}</span>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <div className={styles.iconInfoContainer}>
-        <div>
-          <SVG src="https://s3-us-west-1.amazonaws.com/open-table-reservation-svg/neighborhood.svg" />
-        </div>
-        <div className={styles.infoContainer}>
+        <div className={styles.iconInfoContainer}>
           <div>
-            <span className={styles.infoHeader}>Neighborhood</span>
+            <SVG src="https://s3-us-west-1.amazonaws.com/open-table-reservation-svg/neighborhood.svg" />
+          </div>
+          <div className={styles.infoContainer}>
             <div>
-              <span>Downtown</span>
+              <span className={styles.infoHeader}>Neighborhood</span>
+              <div>
+                <span>{data.restaurantNeighborhood}</span>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <div className={styles.iconInfoContainer}>
-        <div>
-          <SVG src="https://s3-us-west-1.amazonaws.com/open-table-reservation-svg/hours-of-operation-icon.svg" />
-        </div>
-        <div className={styles.infoContainer}>
+        <div className={styles.iconInfoContainer}>
           <div>
-            <span className={styles.infoHeader}>Hours of operation</span>
+            <SVG src="https://s3-us-west-1.amazonaws.com/open-table-reservation-svg/hours-of-operation-icon.svg" />
+          </div>
+          <div className={styles.infoContainer}>
             <div>
-              <span>Brunch Sat, Sun 10:00 am–2:30 pm Dinner Mon–Thu 5:30 pm–10:00 pm Fri, Sat 5:00 pm–11:00 pm Sun 5:00 pm–10:00 pm</span>
+              <span className={styles.infoHeader}>Hours of operation</span>
+              <div>
+                <span>
+                  {hours.map(hour => (
+                    <div>{hour}</div>
+                  ))}
+                </span>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <div className={styles.iconInfoContainer}>
-        <div>
-          <SVG src="https://s3-us-west-1.amazonaws.com/open-table-reservation-svg/cuisines-icon.svg" />
-        </div>
-        <div className={styles.infoContainer}>
+        <div className={styles.iconInfoContainer}>
           <div>
-            <span className={styles.infoHeader}>Cuisines</span>
+            <SVG src="https://s3-us-west-1.amazonaws.com/open-table-reservation-svg/cuisines-icon.svg" />
+          </div>
+          <div className={styles.infoContainer}>
             <div>
-              <span>Californian</span>
+              <span className={styles.infoHeader}>Cuisines</span>
+              <div>
+                <span>{data.restaurantCuisine}</span>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <div className={styles.iconInfoContainer}>
-        <div>
-          <SVG src="https://s3-us-west-1.amazonaws.com/open-table-reservation-svg/dining-style-icon.svg" />
-        </div>
-        <div className={styles.infoContainer}>
+        <div className={styles.iconInfoContainer}>
           <div>
-            <span className={styles.infoHeader}>Dining Style</span>
+            <SVG src="https://s3-us-west-1.amazonaws.com/open-table-reservation-svg/dining-style-icon.svg" />
+          </div>
+          <div className={styles.infoContainer}>
             <div>
-              <span>Casual Dining</span>
+              <span className={styles.infoHeader}>Dining Style</span>
+              <div>
+                <span>{data.restaurantDiningStyle}</span>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <div className={styles.iconInfoContainer}>
-        <div>
-          <SVG src="https://s3-us-west-1.amazonaws.com/open-table-reservation-svg/dress-code-icon.svg" />
-        </div>
-        <div className={styles.infoContainer}>
+        <div className={styles.iconInfoContainer}>
           <div>
-            <span className={styles.infoHeader}>Dress Code</span>
+            <SVG src="https://s3-us-west-1.amazonaws.com/open-table-reservation-svg/dress-code-icon.svg" />
+          </div>
+          <div className={styles.infoContainer}>
             <div>
-              <span>Casual Dress</span>
+              <span className={styles.infoHeader}>Dress Code</span>
+              <div>
+                <span>{data.restaurantDressCode}</span>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <div className={styles.iconInfoContainer}>
-        <div>
-          <SVG src="https://s3-us-west-1.amazonaws.com/open-table-reservation-svg/parking-details-icon.svg" />
-        </div>
-        <div className={styles.infoContainer}>
+        <div className={styles.iconInfoContainer}>
           <div>
-            <span className={styles.infoHeader}>Parking Details</span>
+            <SVG src="https://s3-us-west-1.amazonaws.com/open-table-reservation-svg/parking-details-icon.svg" />
+          </div>
+          <div className={styles.infoContainer}>
             <div>
-              <span>There is metered parking in the front of the restaurant and a free 2 hour city parking lot in the rear</span>
+              <span className={styles.infoHeader}>Parking Details</span>
+              <div>
+                <span>{data.restaurantParkingDetails}</span>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <div className={styles.iconInfoContainer}>
-        <div>
-          <SVG src="https://s3-us-west-1.amazonaws.com/open-table-reservation-svg/payment-options-icon.svg" />
-        </div>
-        <div className={styles.infoContainer}>
+        <div className={styles.iconInfoContainer}>
           <div>
-            <span className={styles.infoHeader}>Payment Options</span>
+            <SVG src="https://s3-us-west-1.amazonaws.com/open-table-reservation-svg/payment-options-icon.svg" />
+          </div>
+          <div className={styles.infoContainer}>
             <div>
-              <span>AMEX, Diners Club, Discover, MasterCard, Visa</span>
+              <span className={styles.infoHeader}>Payment Options</span>
+              <div>
+                <span>
+                  {payments.join(', ')}
+                </span>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <div className={styles.iconInfoContainer}>
-        <div>
-          <SVG src="https://s3-us-west-1.amazonaws.com/open-table-reservation-svg/chef-icon.svg" />
-        </div>
-        <div className={styles.infoContainer}>
+        <div className={styles.iconInfoContainer}>
           <div>
-            <span className={styles.infoHeader}>Executive Chef</span>
+            <SVG src="https://s3-us-west-1.amazonaws.com/open-table-reservation-svg/chef-icon.svg" />
+          </div>
+          <div className={styles.infoContainer}>
             <div>
-              <span>Renata Rokicki</span>
+              <span className={styles.infoHeader}>Executive Chef</span>
+              <div>
+                <span>{data.restaurantChef}</span>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <div className={styles.iconInfoContainer}>
-        <div>
-          <SVG src="https://s3-us-west-1.amazonaws.com/open-table-reservation-svg/additional-info-icon.svg" />
-        </div>
-        <div className={styles.infoContainer}>
+        <div className={styles.iconInfoContainer}>
           <div>
-            <span className={styles.infoHeader}>Additional</span>
+            <SVG src="https://s3-us-west-1.amazonaws.com/open-table-reservation-svg/additional-info-icon.svg" />
+          </div>
+          <div className={styles.infoContainer}>
             <div>
-              <span>Banquet, Bar/Lounge, Beer, Cocktails, Corkage Fee, Full Bar, Happy Hour, Non-Smoking, Outdoor dining, Patio/Outdoor Dining, Weekend Brunch, Wheelchair Access, Wine</span>
+              <span className={styles.infoHeader}>Additional</span>
+              <div>
+                <span>
+                  {additional.join(', ')}
+                </span>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-);
+  );
+};
 
 export default DescriptionLess;
