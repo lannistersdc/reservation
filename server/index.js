@@ -14,6 +14,6 @@ server.use(cors());
 server.use('/', express.static(`${__dirname}/../public`));
 server.use('/api', router);
 
-const port = 3002;
+const port = process.env.PORT || 3002;
 
 server.listen(port, () => console.log(`Server is listening on port: ${port}!`));
