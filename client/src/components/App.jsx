@@ -48,10 +48,10 @@ class App extends React.Component {
       additional,
     } = this.state;
     return (
-      <div className={styles.masterContainer}>
-        <div className={styles.mainContainer}>
-          <Nav />
-        </div>
+      <div /* className={styles.masterContainer} */>
+        {/* <div className={styles.mainContainer}> */}
+          {/* <Nav /> */}
+        {/* </div> */}
         <div className={styles.reservationMod}>
           <Reservation />
           <div className={styles.mapDescriptionContainer}>
