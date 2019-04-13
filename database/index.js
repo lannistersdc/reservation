@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/opentable');
+mongoose.connect('mongodb://localhost/reservation');
 
 const reservationSchema = new mongoose.Schema({
   restaurantID: {
