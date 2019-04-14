@@ -36,6 +36,7 @@ class Reservation extends React.Component {
 
   render() {
     const { selectTime, loading } = this.state;
+    const { data } = this.props;
     if (selectTime === true) {
       return (
         <div className={styles.default}>
@@ -67,7 +68,7 @@ class Reservation extends React.Component {
                 <SVG src="https://s3-us-west-1.amazonaws.com/open-table-reservation-svg/bookCount.svg" />
               </div>
               <div className={styles.bookCountInfo}>
-                <span>Booked 15 times today</span>
+                <span>Booked {data.restaurantBookCount} times today</span>
               </div>
             </div>
           </div>
@@ -105,7 +106,7 @@ class Reservation extends React.Component {
                 <SVG src="https://s3-us-west-1.amazonaws.com/open-table-reservation-svg/bookCount.svg" />
               </div>
               <div className={styles.bookCountInfo}>
-                <span>Booked 15 times today</span>
+                <span>Booked {data.restaurantBookCount} times today</span>
               </div>
             </div>
           </div>
@@ -140,7 +141,7 @@ class Reservation extends React.Component {
               <SVG src="https://s3-us-west-1.amazonaws.com/open-table-reservation-svg/bookCount.svg" />
             </div>
             <div className={styles.bookCountInfo}>
-              <span>Booked 15 times today</span>
+              <span>Booked {data.restaurantBookCount} times today</span>
             </div>
           </div>
         </div>

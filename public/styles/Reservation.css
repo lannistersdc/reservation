@@ -33,8 +33,8 @@
 }
 
 .dateContainer {
-  font-size: .875rem;
-  font-weight: 500;
+  font-size: 13px;
+  font-weight: 600;
   flex: 1 50%;
 }
 
@@ -82,8 +82,8 @@
 }
 
 .partyContainer {
-  font-size: .875rem;
-  font-weight: 500;
+  font-size: 13px;
+  font-weight: 600;
   padding-bottom: .25rem;
 }
 
@@ -175,8 +175,8 @@
 
 
 .timeContainer {
-  font-size: .875rem;
-  font-weight: 500;
+  font-size: 13px;
+  font-weight: 600;
   padding-bottom: .25rem;
   flex: 1 50%;
   margin-left: .5rem;

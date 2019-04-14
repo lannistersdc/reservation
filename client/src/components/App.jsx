@@ -53,7 +53,7 @@ class App extends React.Component {
           {/* <Nav /> */}
         {/* </div> */}
         <div className={styles.reservationMod}>
-          <Reservation />
+          <Reservation data={restaurantInfo} />
           <div className={styles.mapDescriptionContainer}>
             <Map />
             <Description
