@@ -22,29 +22,30 @@ class Calendar extends React.Component {
     this.setState({ focused });
   }
 
+
   render() {
     const { focused, date } = this.state;
-
     return (
       <div className="reservationCalendar">
-        <SingleDatePicker
-          // {...this.props}
-          id="date_input"
-          date={date}
-          focused={focused}
-          onDateChange={this.onDateChange}
-          onFocusChange={this.onFocusChange}
-          numberOfMonths={1}
-          transitionDuration={0}
-          verticalSpacing={-8}
-          enableOutsideDays
-          noBorder
-          displayFormat="ddd, MM/DD"
-          weekDayFormat="ddd"
-          hideKeyboardShortcutsPanel
-          placeholder="Today"
-          daySize={36}
-        />
+        <form>
+          <SingleDatePicker
+            id="date_input"
+            date={date}
+            focused={focused}
+            onDateChange={this.onDateChange}
+            onFocusChange={this.onFocusChange}
+            numberOfMonths={1}
+            transitionDuration={0}
+            verticalSpacing={-8}
+            enableOutsideDays
+            noBorder
+            displayFormat="ddd, MM/DD"
+            weekDayFormat="ddd"
+            hideKeyboardShortcutsPanel
+            placeholder="Today"
+            daySize={36}
+          />
+        </form>
       </div>
     );
   }

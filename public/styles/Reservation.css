@@ -99,6 +99,32 @@
   content: "For";
 }
 
+.combinedSelector{
+  font-size: 15px;
+  line-height: 2.1;
+  -webkit-font-smoothing: antialiased;
+  width: 18rem;
+  height: 35px;
+  border: none;
+  border-radius: 0;
+  border-bottom: 1px solid #d8d9db;
+  box-shadow: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: #fff url(https://s3-us-west-1.amazonaws.com/open-table-reservation-svg/combinedSelector.svg) no-repeat right;
+  background-size: 24px 24px;
+}
+
+.combinedSelector:hover{
+  content: "";
+  position: static;
+  right: .5rem;
+  bottom: 0;
+  left: .5rem;
+  border-bottom: 2px solid #da3743;
+}
+
 .partySelector {
   font-size: 0.875rem;
   -webkit-font-smoothing: antialiased;

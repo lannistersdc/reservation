@@ -18,14 +18,15 @@ class ReservationParty extends React.Component {
 
   render() {
     const { selected } = this.state;
+    const { getParty } = this.props;
     return (
       <div className={styles.partyContainer}>
         <div className={styles.partyHeader}>Party Size</div>
         <div className={styles.selectionIconContainer}>
           <div className={styles.partySelectorDiv}>{selected}</div>
-          <select onChange={this.handleSelect} className={styles.partySelector}>
+          <select onChange={this.handleSelect} onInput={getParty} className={styles.partySelector}>
             <option value="For 1">1</option>
-            <option value="For 2" defaultValue="selected">2</option>
+            <option value="For 2">2</option>
             <option value="For 3">3</option>
             <option value="For 4">4</option>
             <option value="For 5">5</option>
@@ -40,7 +41,7 @@ class ReservationParty extends React.Component {
             <option value="For 14">14</option>
             <option value="For 15">15</option>
             <option value="For 16">16</option>
-            <option value="For17">17</option>
+            <option value="For 17">17</option>
             <option value="For 18">18</option>
             <option value="For 19">19</option>
             <option value="For 20">20</option>

@@ -36,7 +36,7 @@ class Reservation extends React.Component {
 
   render() {
     const { selectTime, loading } = this.state;
-    const { data } = this.props;
+    const { data, getParty, getDate } = this.props;
     if (selectTime === true) {
       return (
         <div className={styles.default}>
@@ -48,12 +48,12 @@ class Reservation extends React.Component {
           <div className={styles.subcontainer}>
             <div className="reservationContainer">
               <div className={styles.selectionContainer}>
-                <ReservationParty />
+                <ReservationParty getParty={getParty} />
                 <div className={styles.dateTimeContainer}>
                   <div className={styles.dateContainer}>
                     <div className={styles.dateHeader}>Date</div>
                     <div>
-                      <Calendar />
+                      <Calendar getDate={getDate} />
                     </div>
                   </div>
                   <ReservationTime />
@@ -68,7 +68,13 @@ class Reservation extends React.Component {
                 <SVG src="https://s3-us-west-1.amazonaws.com/open-table-reservation-svg/bookCount.svg" />
               </div>
               <div className={styles.bookCountInfo}>
-                <span>Booked {data.restaurantBookCount} times today</span>
+                <span>
+                  Booked
+                  &nbsp;
+                  {data.restaurantBookCount}
+                  &nbsp;
+                  times today
+                </span>
               </div>
             </div>
           </div>
@@ -86,12 +92,12 @@ class Reservation extends React.Component {
           <div className={styles.subcontainer}>
             <div className="reservationContainer">
               <div className={styles.selectionContainer}>
-                <ReservationParty />
+                <ReservationParty getParty={getParty} />
                 <div className={styles.dateTimeContainer}>
                   <div className={styles.dateContainer}>
                     <div className={styles.dateHeader}>Date</div>
                     <div>
-                      <Calendar />
+                      <Calendar getDate={getDate} />
                     </div>
                   </div>
                   <ReservationTime />
@@ -106,7 +112,13 @@ class Reservation extends React.Component {
                 <SVG src="https://s3-us-west-1.amazonaws.com/open-table-reservation-svg/bookCount.svg" />
               </div>
               <div className={styles.bookCountInfo}>
-                <span>Booked {data.restaurantBookCount} times today</span>
+                <span>
+                  Booked
+                  &nbsp;
+                  {data.restaurantBookCount}
+                  &nbsp;
+                  times today
+                </span>
               </div>
             </div>
           </div>
@@ -123,12 +135,12 @@ class Reservation extends React.Component {
         <div className={styles.subcontainer}>
           <div className="reservationContainer">
             <div className={styles.selectionContainer}>
-              <ReservationParty />
+              <ReservationParty getParty={getParty} />
               <div className={styles.dateTimeContainer}>
                 <div className={styles.dateContainer}>
                   <div className={styles.dateHeader}>Date</div>
                   <div>
-                    <Calendar />
+                    <Calendar getDate={getDate} />
                   </div>
                 </div>
                 <ReservationTime />
@@ -141,7 +153,13 @@ class Reservation extends React.Component {
               <SVG src="https://s3-us-west-1.amazonaws.com/open-table-reservation-svg/bookCount.svg" />
             </div>
             <div className={styles.bookCountInfo}>
-              <span>Booked {data.restaurantBookCount} times today</span>
+              <span>
+                Booked
+                &nbsp;
+                {data.restaurantBookCount}
+                &nbsp;
+                times today
+              </span>
             </div>
           </div>
         </div>
