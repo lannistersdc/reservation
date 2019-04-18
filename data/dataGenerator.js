@@ -2,6 +2,7 @@
 // const Reservation = require('../database/index.js');
 const Faker = require('faker/locale/en_US');
 const fs = require('fs');
+const Readable = require('stream').Readable;
 
 let reservationData = fs.createWriteStream('./data.ndjson');
 // let instream = get(s3link).response;
@@ -212,33 +213,63 @@ const phoneNumberGenerator = () => Faker.phone.phoneNumber();
 const websiteGenerator = () => randomizer(website);
 
 // master generator
-(async () => {
-  for (let i = 1; i <= 10000000; i += 1) {
-    let obj = {};
-    obj.restaurantID = i;
-    obj.restaurantCrossStreet = crossStreetGenerator();
-    obj.restaurantNeighborhood = neighborhoodGenerator();
-    obj.restaurantHoursOfOperation = hoursOfOperationGenerator();
-    obj.restaurantCuisine = cuisineGenerator();
-    obj.restaurantDiningStyle = diningStyleGenerator();
-    obj.restaurantDressCode = dressCodeGenerator();
-    obj.restaurantParkingDetails = parkingDetailsGenerator();
-    obj.restaurantPaymentOptions = paymentOptionsGenerator();
-    obj.restaurantChef = chefGenerator();
-    obj.restaurantAdditional = additionalGenerator();
-    obj.restaurantWebsite = websiteGenerator();
-    obj.restaurantPhoneNumber = phoneNumberGenerator();
-    obj.restaurantBookCount = bookCountGenerator();
+// (async () => {
+//   for (let i = 1; i <= 10000000; i += 1) {
+//     let obj = {};
+//     obj.restaurantID = i;
+//     obj.restaurantCrossStreet = crossStreetGenerator();
+//     obj.restaurantNeighborhood = neighborhoodGenerator();
+//     obj.restaurantHoursOfOperation = hoursOfOperationGenerator();
+//     obj.restaurantCuisine = cuisineGenerator();
+//     obj.restaurantDiningStyle = diningStyleGenerator();
+//     obj.restaurantDressCode = dressCodeGenerator();
+//     obj.restaurantParkingDetails = parkingDetailsGenerator();
+//     obj.restaurantPaymentOptions = paymentOptionsGenerator();
+//     obj.restaurantChef = chefGenerator();
+//     obj.restaurantAdditional = additionalGenerator();
+//     obj.restaurantWebsite = websiteGenerator();
+//     obj.restaurantPhoneNumber = phoneNumberGenerator();
+//     obj.restaurantBookCount = bookCountGenerator();
 
-    if (!reservationData.write(JSON.stringify(obj) + '\n')) {
-      await new Promise(resolve => reservationData.once('drain', resolve));
+//     if (!reservationData.write(JSON.stringify(obj) + '\n')) {
+//       await new Promise(resolve => reservationData.once('drain', resolve));
+//     }
+//   }
+// })();
+
+class ReservationStream extends Readable {
+  constructor(options) {
+    super(options);
+    this.count = 1;
+  }
+
+  _read() {
+    if (this.count <= 50) {
+      if (this.count % 100 === 0) console.log(this.count);
+      let obj = {};
+      obj.restaurantID = this.count;
+      obj.restaurantCrossStreet = crossStreetGenerator();
+      obj.restaurantNeighborhood = neighborhoodGenerator();
+      obj.restaurantHoursOfOperation = hoursOfOperationGenerator();
+      obj.restaurantCuisine = cuisineGenerator();
+      obj.restaurantDiningStyle = diningStyleGenerator();
+      obj.restaurantDressCode = dressCodeGenerator();
+      obj.restaurantParkingDetails = parkingDetailsGenerator();
+      obj.restaurantPaymentOptions = paymentOptionsGenerator();
+      obj.restaurantChef = chefGenerator();
+      obj.restaurantAdditional = additionalGenerator();
+      obj.restaurantWebsite = websiteGenerator();
+      obj.restaurantPhoneNumber = phoneNumberGenerator();
+      obj.restaurantBookCount = bookCountGenerator();
+      if (this.push(JSON.stringify(obj) + '\n')) {
+        this.count++;
+      }
+    } else {
+      this.push(null);
     }
   }
-})();
+}
 
-// reservationData.end();
+let instream = new ReservationStream();
 
-reservationData.on('finish', () => {
-  console.log('finished');
-  reservationData.end();
-});
+instream.pipe(reservationData);
