@@ -1,12 +1,18 @@
-const mongoose = require('mongoose');
-const Reservation = require('../database/index.js');
+// const mongoose = require('mongoose');
+// const Reservation = require('../database/index.js');
+const Faker = require('faker/locale/en_US');
+const fs = require('fs');
+
+let reservationData = fs.createWriteStream('./data.ndjson');
+// let instream = get(s3link).response;
+// instream.pipe(mongostream);
 
 /*
-** opentable.com random data generators
-*/
+ ** opentable.com random data generators
+ */
 
 // helpers
-const randomizer = (data) => {
+const randomizer = data => {
   const i = Math.floor(Math.random() * data.length);
   return data[i];
 };
@@ -23,19 +29,126 @@ const randomNumber = () => {
 };
 
 // datasets
-const streets = ['7th Street', 'Santa Fe Avenue', 'N. La Brea Boulevard', 'Alameda Boulevard', 'Sepulveda Boulevard', '11th Street', 'Flower Street', 'Santa Monica Boulevard', 'Valley Boulevard'];
-const neighborhood = ['Downtown', 'Hollywood', 'Long Beach', 'Santa Monica', 'Pasadena', 'Ventura County', 'Westside Hollywood', 'Beverly Hills', 'Valencia'];
+
+const neighborhood = [
+  'Downtown',
+  'Hollywood',
+  'Long Beach',
+  'Santa Monica',
+  'Pasadena',
+  'Ventura County',
+  'Westside Hollywood',
+  'Beverly Hills',
+  'Valencia',
+  'Uptown',
+  'Downtown',
+  'Westtown',
+  'Easttown',
+  'Funkytown'
+];
 const diningStyle = ['Casual Dining', 'Fine Dining', 'Casual Elegant'];
-const dressCode = ['Smart Casual', 'Business Casual', 'Casual Dress', 'Jacket Preffered'];
-const cuisines = ['Contemporary American', 'Global', 'International', 'Italian', 'Continental', 'American', 'Vegitarian', 'French', 'Californian', 'French American', 'Steak House', 'Japanese', 'Barbecue', 'Tapas / Small Plates', 'Sushi', 'Italian', 'Seafood', 'Contemporary Italian'];
-const parkingDetails = ['We offer valet service at a charge', 'Hotel offers valet service', 'Hotel offers valet service at reduced rate', 'Street Parking', 'Metered Parking', '$10.00 for first 3 hours with validation; $20 for anything after that', 'Free public parking located in the back', 'Valet, $10 per vehicle', 'You can park on the street at a meter, if available, or use our valet', 'Private parking lot on both sides of the restaurant', 'Valet Parking is complimentary'];
-const paymentOptions = [['AMEX', 'Discover', 'Diners Club'], ['AMEX', 'Discover'], ['Discover', 'Diners Club'], ['Discover']];
-const additional = ['Bar Dining', 'Bar/Lounge', 'Beer', 'BYO Wine', 'Cocktails', 'Corkage Fee', 'Entertainment', 'Full Bar', 'High Tea', 'Late Night', 'Non-Smoking', 'Outdoor Dining', 'Weekend Brunch', 'Wheelchair Access', 'Wine', 'Outdoor Smoking Area', 'Private Room', 'View', 'Counter Seating', 'Cafe', 'Cocktails', 'Banquet', 'Happy Hour', 'Takeout', 'Gluten-Free Menu'];
-const chef = ['Mireya Medina', 'Ryan DeNicola', 'Gerardo Lopez', 'Nicola Mastronardi', 'Suzanne Goin', 'Suzanne Tracht', 'Gerry Benitez', 'Gary T. Menes', 'Walter Manzke', 'Marcello Fiorentino'];
-const phoneNumber = ['(213) 827-2777', '(213) 907-9123', '(213) 691-3131', '(213) 627-2434', '(310) 826-2654', '(310) 537-7600', '(310) 760-2332', '(310) 704-6410', '(710) 627-2434', '(710) 324-2434', '(710) 899-9913', '(818) 813-1239', '(710) 913-4455', '(710) 677-9913'];
-const hoursWeekday = ['Monday - Friday: 11am - 8pm', 'Monday - Wednesday 11 AM - 10 PM Thursday - Friday 11 AM - 11 PM', 'Monday - Friday, 11:30 am - 9:00 pm'];
-const hoursWeekend = ['Saturday - Sunday: 11am - 10pm', 'Weekend Breakfast 8 AM - 12 PM Saturday Lunch/Dinner 12 PM - 11 PM Sunday Lunch/Dinner 12 PM - 10 PM', 'Saturday & Sunday, 3:00 pm - 9:00 pm'];
-const website = ['www.bestfoodla.com', 'www.lacuisine.com', 'www.topchefdining.com', 'www.goodeats.com', 'www.yummyinmytummy.com', 'www.foodcoma.com', 'www.dontbothermeimeating', 'www.toasted.com', 'www.besteats.com', 'www.eatandsleep.com'];
+const dressCode = [
+  'Casual',
+  'Smart Casual',
+  'Business Casual',
+  'Casual Dress',
+  'Jacket Preffered',
+  'Formal',
+  'Black Tie'
+];
+const cuisines = [
+  'Contemporary American',
+  'Global',
+  'International',
+  'Italian',
+  'Continental',
+  'American',
+  'Vegitarian',
+  'Farm-to-table',
+  'French',
+  'Californian',
+  'Asian Fusion',
+  'French American',
+  'Steak House',
+  'Japanese',
+  'Barbecue',
+  'Tapas / Small Plates',
+  'Sushi',
+  'Italian',
+  'Seafood',
+  'Contemporary Italian',
+  'BBQ',
+  'Comfort food'
+];
+const parkingDetails = [
+  'We offer valet service at a charge',
+  'Hotel offers valet service',
+  'Hotel offers valet service at reduced rate',
+  'Street Parking',
+  'Metered Parking',
+  '$10.00 for first 3 hours with validation; $20 for anything after that',
+  'Free public parking located in the back',
+  'Valet, $10 per vehicle',
+  'You can park on the street at a meter, if available, or use our valet',
+  'Private parking lot on both sides of the restaurant',
+  'Valet Parking is complimentary'
+];
+const paymentOptions = [
+  ['AMEX', 'Discover', 'Diners Club'],
+  ['AMEX', 'Discover'],
+  ['Discover', 'Diners Club'],
+  ['Discover']
+];
+const additional = [
+  'Bar Dining',
+  'Bar/Lounge',
+  'Beer',
+  'BYO Wine',
+  'Cocktails',
+  'Corkage Fee',
+  'Entertainment',
+  'Full Bar',
+  'High Tea',
+  'Late Night',
+  'Non-Smoking',
+  'Outdoor Dining',
+  'Weekend Brunch',
+  'Wheelchair Access',
+  'Wine',
+  'Outdoor Smoking Area',
+  'Private Room',
+  'View',
+  'Counter Seating',
+  'Cafe',
+  'Cocktails',
+  'Banquet',
+  'Happy Hour',
+  'Takeout',
+  'Gluten-Free Menu'
+];
+
+const hoursWeekday = [
+  'Monday - Friday: 11am - 8pm',
+  'Monday - Wednesday 11 AM - 10 PM Thursday - Friday 11 AM - 11 PM',
+  'Monday - Friday, 11:30 am - 9:00 pm'
+];
+const hoursWeekend = [
+  'Saturday - Sunday: 11am - 10pm',
+  'Weekend Breakfast 8 AM - 12 PM Saturday Lunch/Dinner 12 PM - 11 PM Sunday Lunch/Dinner 12 PM - 10 PM',
+  'Saturday & Sunday, 3:00 pm - 9:00 pm'
+];
+const website = [
+  'www.bestfoodla.com',
+  'www.lacuisine.com',
+  'www.topchefdining.com',
+  'www.goodeats.com',
+  'www.yummyinmytummy.com',
+  'www.foodcoma.com',
+  'www.dontbothermeimeating',
+  'www.toasted.com',
+  'www.besteats.com',
+  'www.eatandsleep.com'
+];
 
 // additional information generator
 const additionalGenerator = () => {
@@ -53,7 +166,7 @@ const additionalGenerator = () => {
 const bookCountGenerator = () => randomNumber();
 
 // cross street generator
-const crossStreetGenerator = () => randomizer(streets);
+const crossStreetGenerator = () => Faker.address.streetName();
 
 // cuisine generator
 const cuisineGenerator = () => randomizer(cuisines);
@@ -65,7 +178,7 @@ const diningStyleGenerator = () => randomizer(diningStyle);
 const dressCodeGenerator = () => randomizer(dressCode);
 
 // executive chef generator
-const chefGenerator = () => randomizer(chef);
+const chefGenerator = () => Faker.name.findName();
 
 // hours of operation generator
 const hoursOfOperationGenerator = () => {
@@ -93,15 +206,14 @@ const paymentOptionsGenerator = () => {
 };
 
 // phone number generator
-const phoneNumberGenerator = () => randomizer(phoneNumber);
+const phoneNumberGenerator = () => Faker.phone.phoneNumber();
 
 // website generator
 const websiteGenerator = () => randomizer(website);
 
 // master generator
-const masterGenerator = () => {
-  const array = [];
-  for (let i = 1; i <= 100; i += 1) {
+(async () => {
+  for (let i = 1; i <= 10000000; i += 1) {
     let obj = {};
     obj.restaurantID = i;
     obj.restaurantCrossStreet = crossStreetGenerator();
@@ -117,18 +229,16 @@ const masterGenerator = () => {
     obj.restaurantWebsite = websiteGenerator();
     obj.restaurantPhoneNumber = phoneNumberGenerator();
     obj.restaurantBookCount = bookCountGenerator();
-    array.push(obj);
-    obj = {};
+
+    if (!reservationData.write(JSON.stringify(obj) + '\n')) {
+      await new Promise(resolve => reservationData.once('drain', resolve));
+    }
   }
-  return array;
-};
+})();
 
-const data = masterGenerator();
+// reservationData.end();
 
-const seeder = (array) => {
-  Reservation.insertMany(array)
-    .then(() => mongoose.connection.close())
-    .catch(err => console.error(err));
-};
-
-seeder(data);
+reservationData.on('finish', () => {
+  console.log('finished');
+  reservationData.end();
+});
