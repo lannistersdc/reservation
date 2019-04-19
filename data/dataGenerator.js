@@ -235,10 +235,3 @@ const websiteGenerator = () => randomizer(website);
     }
   }
 })();
-
-// reservationData.end();
-
-reservationData.on('finish', () => {
-  console.log('finished');
-  reservationData.end();
-});
