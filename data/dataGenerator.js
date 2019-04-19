@@ -1,11 +1,10 @@
-// const mongoose = require('mongoose');
-// const Reservation = require('../database/index.js');
 const Faker = require('faker/locale/en_US');
 const fs = require('fs');
+const path = require('path');
 
-let reservationData = fs.createWriteStream('./data.ndjson');
-// let instream = get(s3link).response;
-// instream.pipe(mongostream);
+let reservationData = fs.createWriteStream(
+  path.resolve(__dirname, './data.csv')
+);
 
 /*
  ** opentable.com random data generators
@@ -212,26 +211,31 @@ const phoneNumberGenerator = () => Faker.phone.phoneNumber();
 const websiteGenerator = () => randomizer(website);
 
 // master generator
-(async () => {
+const populate = async () => {
   for (let i = 1; i <= 10000000; i += 1) {
-    let obj = {};
-    obj.restaurantID = i;
-    obj.restaurantCrossStreet = crossStreetGenerator();
-    obj.restaurantNeighborhood = neighborhoodGenerator();
-    obj.restaurantHoursOfOperation = hoursOfOperationGenerator();
-    obj.restaurantCuisine = cuisineGenerator();
-    obj.restaurantDiningStyle = diningStyleGenerator();
-    obj.restaurantDressCode = dressCodeGenerator();
-    obj.restaurantParkingDetails = parkingDetailsGenerator();
-    obj.restaurantPaymentOptions = paymentOptionsGenerator();
-    obj.restaurantChef = chefGenerator();
-    obj.restaurantAdditional = additionalGenerator();
-    obj.restaurantWebsite = websiteGenerator();
-    obj.restaurantPhoneNumber = phoneNumberGenerator();
-    obj.restaurantBookCount = bookCountGenerator();
+    let line = '';
+    line += i + ',';
+    line += crossStreetGenerator() + ',';
+    line += neighborhoodGenerator() + ',';
+    line += hoursOfOperationGenerator() + ',';
+    line += cuisineGenerator() + ',';
+    line += diningStyleGenerator() + ',';
+    line += dressCodeGenerator() + ',';
+    line += parkingDetailsGenerator() + ',';
+    line += paymentOptionsGenerator() + ',';
+    line += chefGenerator() + ',';
+    line += additionalGenerator() + ',';
+    line += websiteGenerator() + ',';
+    line += phoneNumberGenerator() + ',';
+    line += bookCountGenerator();
 
-    if (!reservationData.write(JSON.stringify(obj) + '\n')) {
+    if (!reservationData.write(line + '\n')) {
       await new Promise(resolve => reservationData.once('drain', resolve));
     }
   }
-})();
+};
+
+reservationData.write(
+  'restaurantID,restaurantCrossStreet,restaurantNeighborhood,restaurantHoursOfOperation,restaurantCuisine,restaurantDiningStyle,restaurantDressCode,restaurantParkingDetails,restaurantPaymentOptions,restaurantChef,restaurantAdditional,restaurantWebsite,restaurantPhoneNumber,restaurantBookCount\n',
+  populate
+);
