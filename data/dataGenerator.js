@@ -244,8 +244,7 @@ class ReservationStream extends Readable {
   }
 
   _read() {
-    if (this.count <= 50) {
-      if (this.count % 100 === 0) console.log(this.count);
+    if (this.count <= 10000000) {
       let obj = {};
       obj.restaurantID = this.count;
       obj.restaurantCrossStreet = crossStreetGenerator();
@@ -261,9 +260,8 @@ class ReservationStream extends Readable {
       obj.restaurantWebsite = websiteGenerator();
       obj.restaurantPhoneNumber = phoneNumberGenerator();
       obj.restaurantBookCount = bookCountGenerator();
-      if (this.push(JSON.stringify(obj) + '\n')) {
-        this.count++;
-      }
+      this.push(JSON.stringify(obj) + '\n');
+      this.count++;
     } else {
       this.push(null);
     }
