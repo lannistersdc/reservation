@@ -11,7 +11,7 @@ const controller = {
     Reservation.find({ restaurantID })
       .then(data => res.status(200).send(data))
       .catch(() => res.status(404).send('Get request failed'));
-  },
+  }
 };
 
 module.exports = controller;

@@ -23,7 +23,7 @@ class App extends React.Component {
       transform: 0,
       uncollapse: false,
       party: 'For 2',
-      selectedDate: 'Fri, 4/19',
+      selectedDate: 'Fri, 4/19'
     };
     this.get = this.get.bind(this);
     this.handleScroll = this.handleScroll.bind(this);
@@ -43,21 +43,21 @@ class App extends React.Component {
 
   getDate(date) {
     this.setState({
-      selectedDate: date,
+      selectedDate: date
     });
   }
 
   getPartySize(e) {
     e.preventDefault();
     this.setState({
-      party: e.target.value,
+      party: e.target.value
     });
   }
 
   handleScroll(e) {
     e.preventDefault();
     this.setState({
-      transform: window.scrollY,
+      transform: window.scrollY
     });
   }
 
@@ -65,20 +65,22 @@ class App extends React.Component {
     e.preventDefault();
     this.setState({
       uncollapse: true,
-      transform: 0,
+      transform: 0
     });
   }
 
   // eslint-disable-next-line class-methods-use-this
   get() {
     axios
-      .get(`http://54.219.185.186:3002/reservation/id/${randomNumber()}`)
-      .then(data => this.setState({
-        restaurantInfo: data.data[0],
-        hours: data.data[0].restaurantHoursOfOperation,
-        payments: data.data[0].restaurantPaymentOptions,
-        additional: data.data[0].restaurantAdditional,
-      }))
+      .get(`http://127.0.0.1:3002/api/reservation/id/${randomNumber()}`)
+      .then(data =>
+        this.setState({
+          restaurantInfo: data.data[0],
+          hours: data.data[0].restaurantHoursOfOperation,
+          payments: data.data[0].restaurantPaymentOptions,
+          additional: data.data[0].restaurantAdditional
+        })
+      )
       .catch(err => console.error(err));
   }
 
@@ -91,7 +93,7 @@ class App extends React.Component {
       transform,
       uncollapse,
       party,
-      selectedDate,
+      selectedDate
     } = this.state;
     if (transform > 390) {
       return (
@@ -100,7 +102,12 @@ class App extends React.Component {
             <Nav />
           </div>
           <div className={styles.reservationMod}>
-            <ReservationCollapse data={restaurantInfo} handleUncollapse={this.handleUncollapse} party={party} selectedDate={selectedDate} />
+            <ReservationCollapse
+              data={restaurantInfo}
+              handleUncollapse={this.handleUncollapse}
+              party={party}
+              selectedDate={selectedDate}
+            />
             <div className={styles.mapDescriptionContainer}>
               <Map />
               <Description
@@ -122,7 +129,11 @@ class App extends React.Component {
             <div className={styles.hiddenContainer} />
           </div>
           <div className={styles.reservationMod}>
-            <Reservation data={restaurantInfo} getParty={this.getPartySize} getDate={this.getDate} />
+            <Reservation
+              data={restaurantInfo}
+              getParty={this.getPartySize}
+              getDate={this.getDate}
+            />
             <div className={styles.mapDescriptionContainer}>
               <Map />
               <Description
@@ -143,7 +154,11 @@ class App extends React.Component {
           <div className={styles.hiddenContainer} />
         </div>
         <div className={styles.reservationMod}>
-          <Reservation data={restaurantInfo} getParty={this.getPartySize} getDate={this.getDate} />
+          <Reservation
+            data={restaurantInfo}
+            getParty={this.getPartySize}
+            getDate={this.getDate}
+          />
           <div className={styles.mapDescriptionContainer}>
             <Map />
             <Description
