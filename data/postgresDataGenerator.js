@@ -3,7 +3,7 @@ const fs = require('fs');
 const path = require('path');
 
 let reservationData = fs.createWriteStream(
-  path.resolve(__dirname, './data.json')
+  path.resolve(__dirname, './postgresData.csv')
 );
 
 /*
@@ -212,7 +212,7 @@ const websiteGenerator = () => randomizer(website);
 
 // master generator
 const populate = async () => {
-  for (let i = 1; i <= 100; i += 1) {
+  for (let i = 1; i <= 10000000; i += 1) {
     let obj = {};
     obj.restaurantID = i;
     obj.restaurantCrossStreet = crossStreetGenerator();
@@ -229,7 +229,9 @@ const populate = async () => {
     obj.restaurantPhoneNumber = phoneNumberGenerator();
     obj.restaurantBookCount = bookCountGenerator();
 
-    if (!reservationData.write(JSON.stringify(obj) + (i === 100 ? ']' : ','))) {
+    if (
+      !reservationData.write(JSON.stringify(obj) + (i === 10000000 ? ']' : ','))
+    ) {
       await new Promise(resolve => reservationData.once('drain', resolve));
     }
   }

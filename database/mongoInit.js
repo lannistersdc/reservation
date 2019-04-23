@@ -1,11 +1,14 @@
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/reservation', { useNewUrlParser: true });
+mongoose
+  .connect('mongodb://localhost/reservation', { useNewUrlParser: true })
+  .then(() => console.log('Connected to Mongo'));
 
 const reservationSchema = new mongoose.Schema({
   restaurantID: {
     type: Number,
-    unique: true
+    unique: true,
+    index: true
   },
   restaurantCrossStreet: String,
   restaurantNeighborhood: String,
@@ -23,5 +26,6 @@ const reservationSchema = new mongoose.Schema({
 });
 
 const Reservation = mongoose.model('Reservation', reservationSchema);
+// mongoose.connection.close();
 
 module.exports = Reservation;

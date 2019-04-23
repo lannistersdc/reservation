@@ -2,7 +2,7 @@ const express = require('express');
 const morgan = require('morgan');
 const parser = require('body-parser');
 const cors = require('cors');
-const router = require('./router');
+const router = require('./router.js');
 
 const server = express();
 

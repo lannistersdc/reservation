@@ -4,12 +4,15 @@
   "description": "Microservice for opentable.com app",
   "author": "Daniel",
   "engines": {
-    "node": ">=10.0.0"
+    "node": "=11.14.0"
   },
   "scripts": {
     "start": "nodemon server/index.js",
     "build": "webpack -d --watch",
-    "genFile": "node data/dataGenerator.js"
+    "genMongoFile": "node data/mongoDataGenerator.js",
+    "seedMongo": "mongoimport -d reservation -c reservations --type json --jsonArray --file '/Users/charlesspinosa/Documents/Hack Reactor/SDC/reservation/data/data.json'",
+    "genPostgresFile": "node data/postgresDataGenerator.js",
+    "seedPostgres": "node database/postgresInit.js"
   },
   "dependencies": {
     "@babel/core": "^7.4.0",
@@ -26,6 +29,7 @@
     "jquery": "^3.4.0",
     "mongoose": "^5.4.20",
     "morgan": "^1.9.1",
+    "pg": "^7.10.0",
     "react": "^16.8.5",
     "react-dates": "^20.1.0",
     "react-dom": "^16.8.6",
