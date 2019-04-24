@@ -10,7 +10,7 @@
     "start": "nodemon server/index.js",
     "build": "webpack -d --watch",
     "genMongoFile": "node data/mongoDataGenerator.js",
-    "seedMongo": "mongoimport -d reservation -c reservations --type json --jsonArray --file '/Users/charlesspinosa/Documents/Hack Reactor/SDC/reservation/data/data.json'",
+    "seedMongo": "mongoimport -d reservation -c reservations --type json --jsonArray --file '/Users/charlesspinosa/Documents/Hack Reactor/SDC/reservation/data/mongoData.json'",
     "genPostgresFile": "node data/postgresDataGenerator.js",
     "seedPostgres": "node database/postgresInit.js"
   },

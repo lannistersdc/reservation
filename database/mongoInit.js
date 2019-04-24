@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+mongoose.Promise = global.Promise;
 
 mongoose
   .connect('mongodb://localhost/reservation', { useNewUrlParser: true })
@@ -24,6 +25,8 @@ const reservationSchema = new mongoose.Schema({
   restaurantPhoneNumber: String,
   restaurantBookCount: Number
 });
+
+// reservationSchema.index({ restaurantID: -1 });
 
 const Reservation = mongoose.model('Reservation', reservationSchema);
 // mongoose.connection.close();

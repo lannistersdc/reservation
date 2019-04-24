@@ -129,12 +129,12 @@ const additional = [
 const hoursWeekday = [
   'Monday - Friday: 11am - 8pm',
   'Monday - Wednesday 11 AM - 10 PM Thursday - Friday 11 AM - 11 PM',
-  'Monday - Friday, 11:30 am - 9:00 pm'
+  'Monday - Friday: 11:30 am - 9:00 pm'
 ];
 const hoursWeekend = [
   'Saturday - Sunday: 11am - 10pm',
   'Weekend Breakfast 8 AM - 12 PM Saturday Lunch/Dinner 12 PM - 11 PM Sunday Lunch/Dinner 12 PM - 10 PM',
-  'Saturday & Sunday, 3:00 pm - 9:00 pm'
+  'Saturday & Sunday: 3:00 pm - 9:00 pm'
 ];
 const website = [
   'www.bestfoodla.com',
@@ -213,28 +213,26 @@ const websiteGenerator = () => randomizer(website);
 // master generator
 const populate = async () => {
   for (let i = 1; i <= 10000000; i += 1) {
-    let obj = {};
-    obj.restaurantID = i;
-    obj.restaurantCrossStreet = crossStreetGenerator();
-    obj.restaurantNeighborhood = neighborhoodGenerator();
-    obj.restaurantHoursOfOperation = hoursOfOperationGenerator();
-    obj.restaurantCuisine = cuisineGenerator();
-    obj.restaurantDiningStyle = diningStyleGenerator();
-    obj.restaurantDressCode = dressCodeGenerator();
-    obj.restaurantParkingDetails = parkingDetailsGenerator();
-    obj.restaurantPaymentOptions = paymentOptionsGenerator();
-    obj.restaurantChef = chefGenerator();
-    obj.restaurantAdditional = additionalGenerator();
-    obj.restaurantWebsite = websiteGenerator();
-    obj.restaurantPhoneNumber = phoneNumberGenerator();
-    obj.restaurantBookCount = bookCountGenerator();
+    let line = '';
+    line += i + '| ';
+    line += crossStreetGenerator() + '| ';
+    line += neighborhoodGenerator() + '| ';
+    line += '"{' + hoursOfOperationGenerator().toString() + '}"' + '| ';
+    line += cuisineGenerator() + '| ';
+    line += diningStyleGenerator() + '| ';
+    line += dressCodeGenerator() + '| ';
+    line += parkingDetailsGenerator() + '| ';
+    line += '"{' + paymentOptionsGenerator() + '}"' + '| ';
+    line += chefGenerator() + '| ';
+    line += '"{' + additionalGenerator() + '}"' + '| ';
+    line += websiteGenerator() + '| ';
+    line += phoneNumberGenerator() + '| ';
+    line += bookCountGenerator();
 
-    if (
-      !reservationData.write(JSON.stringify(obj) + (i === 10000000 ? ']' : ','))
-    ) {
+    if (!reservationData.write(line + '\n')) {
       await new Promise(resolve => reservationData.once('drain', resolve));
     }
   }
 };
 
-reservationData.write('[', populate);
+populate();
