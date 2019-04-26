@@ -72,7 +72,7 @@ class App extends React.Component {
   // eslint-disable-next-line class-methods-use-this
   get() {
     axios
-      .get(`http://127.0.0.1:3002/api/reservation/id/${randomNumber()}`)
+      .get(`http://13.59.2.110:3002/api/reservation/id/${randomNumber()}`)
       .then(data => {
         this.setState({
           restaurantInfo: data.data,
