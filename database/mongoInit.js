@@ -8,8 +8,7 @@ mongoose
 const reservationSchema = new mongoose.Schema({
   restaurantID: {
     type: Number,
-    unique: true,
-    index: true
+    index: -1
   },
   restaurantCrossStreet: String,
   restaurantNeighborhood: String,
@@ -26,9 +25,6 @@ const reservationSchema = new mongoose.Schema({
   restaurantBookCount: Number
 });
 
-// reservationSchema.index({ restaurantID: -1 });
-
 const Reservation = mongoose.model('Reservation', reservationSchema);
-// mongoose.connection.close();
 
 module.exports = Reservation;

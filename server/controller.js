@@ -1,5 +1,5 @@
-const dbHelpers = require('../database/mongoHelpers.js'); //change to import dbHelpers
-//import statement for postgresInit helpers
+// const dbHelpers = require('../database/mongoHelpers.js');
+const dbHelpers = require('../database/postgresHelpers.js');
 
 const controller = {
   getAll: (req, res) => {

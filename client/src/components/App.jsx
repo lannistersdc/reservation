@@ -73,14 +73,14 @@ class App extends React.Component {
   get() {
     axios
       .get(`http://127.0.0.1:3002/api/reservation/id/${randomNumber()}`)
-      .then(data =>
+      .then(data => {
         this.setState({
-          restaurantInfo: data.data[0],
-          hours: data.data[0].restaurantHoursOfOperation,
-          payments: data.data[0].restaurantPaymentOptions,
-          additional: data.data[0].restaurantAdditional
-        })
-      )
+          restaurantInfo: data.data,
+          hours: data.data.restaurantHoursOfOperation,
+          payments: data.data.restaurantPaymentOptions,
+          additional: data.data.restaurantAdditional
+        });
+      })
       .catch(err => console.error(err));
   }
 

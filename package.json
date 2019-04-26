@@ -12,7 +12,8 @@
     "genMongoFile": "node data/mongoDataGenerator.js",
     "seedMongo": "mongoimport -d reservation -c reservations --type json --jsonArray --file '/Users/charlesspinosa/Documents/Hack Reactor/SDC/reservation/data/mongoData.json'",
     "genPostgresFile": "node data/postgresDataGenerator.js",
-    "seedPostgres": "node database/postgresInit.js"
+    "seedPostgres": "node database/postgresInit.js",
+    "beginShelling": "artillery run reservation.yml"
   },
   "dependencies": {
     "@babel/core": "^7.4.0",

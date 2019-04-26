@@ -3,7 +3,7 @@ const fs = require('fs');
 const path = require('path');
 
 let reservationData = fs.createWriteStream(
-  path.resolve(__dirname, './postgresData.csv')
+  path.resolve(__dirname, './postgresDatatest.csv')
 );
 
 /*
@@ -212,9 +212,8 @@ const websiteGenerator = () => randomizer(website);
 
 // master generator
 const populate = async () => {
-  for (let i = 1; i <= 10000000; i += 1) {
+  for (let i = 1; i <= 10; i += 1) {
     let line = '';
-    line += i + '| ';
     line += crossStreetGenerator() + '| ';
     line += neighborhoodGenerator() + '| ';
     line += '"{' + hoursOfOperationGenerator().toString() + '}"' + '| ';
@@ -235,4 +234,7 @@ const populate = async () => {
   }
 };
 
-populate();
+reservationData.write(
+  'restaurantCrossStreet|restaurantNeighborhood|restaurantHoursOfOperation|restaurantCuisine|restaurantDiningStyle|restaurantDressCode|restaurantParkingDetails|restaurantPaymentOptions|restaurantChef|restaurantAdditional|restaurantWebsite|restaurantPhoneNumber|restaurantBookCount|restaurantID\n',
+  () => populate()
+);

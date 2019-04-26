@@ -2,7 +2,7 @@ const Reservation = require('./mongoInit.js');
 
 module.exports = {
   getAll: () => Reservation.find({}),
-  getOne: restaurantID => Reservation.find({ restaurantID }),
+  getOne: restaurantID => Reservation.find({ restaurantID }).limit(1),
   updateOne: (restaurantID, obj) =>
     Reservation.findOneAndUpdate({ restaurantID }, obj),
   deleteOne: restaurantID => Reservation.remove({ restaurantID }),
