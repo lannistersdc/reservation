@@ -7,10 +7,10 @@ const pg = require('pg');
 // const pool = new pg.Pool({ connectionString });
 
 const pool = new pg.Pool({
-  user: 'sdcuser2',
+  user: 'postgres',
   host: '13.59.2.110',
   database: 'reservation',
-  password: 'testing',
+  password: null,
   port: 5432
 });
 
