@@ -8,7 +8,7 @@ import ReservationCollapse from './ReservationCollapse';
 import styles from '../../../public/styles/App.css';
 
 const randomNumber = () => {
-  const num = Math.floor(Math.random() * 10);
+  const num = Math.floor(Math.random() * 10000000);
   return num;
 };
 
@@ -72,7 +72,7 @@ class App extends React.Component {
   // eslint-disable-next-line class-methods-use-this
   get() {
     axios
-      .get(`http://13.59.2.110:3002/api/reservation/id/${randomNumber()}`)
+      .get(`http://3.14.152.83:3002/api/reservation/id/${randomNumber()}`)
       .then(data => {
         this.setState({
           restaurantInfo: data.data,
