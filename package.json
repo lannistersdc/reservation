@@ -7,7 +7,7 @@
     "node": "=11.14.0"
   },
   "scripts": {
-    "start": "nodemon server/index.js",
+    "start": "node server/index.js",
     "build": "webpack -d --watch",
     "genMongoFile": "node data/mongoDataGenerator.js",
     "seedMongo": "mongoimport -d reservation -c reservations --type json --jsonArray --file '/Users/charlesspinosa/Documents/Hack Reactor/SDC/reservation/data/mongoData.json'",

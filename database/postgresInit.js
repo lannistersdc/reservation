@@ -1,6 +1,7 @@
 const pg = require('pg');
 
-const connectionString = 'postgresql://13.59.2.110:5432/reservation';
+const connectionString =
+  'postgresql://sdcuser2:testing@13.59.2.110:5432/reservation';
 const pool = new pg.Pool({ connectionString });
 
 pool
