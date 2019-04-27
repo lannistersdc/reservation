@@ -8,7 +8,7 @@ import ReservationCollapse from './ReservationCollapse';
 import styles from '../../../public/styles/App.css';
 
 const randomNumber = () => {
-  const num = Math.floor(Math.random() * 100);
+  const num = Math.floor(Math.random() * 10);
   return num;
 };
 
