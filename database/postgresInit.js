@@ -1,10 +1,10 @@
 const pg = require('pg');
 
-const connectionString =
-  'postgresql://sdcuser2:testing@13.59.2.110:5432/reservation';
-// 'postgresql://localhost:5432/reservation';
-console.log(connectionString);
-const pool = new pg.Pool({ connectionString });
+// const connectionString =
+//   'postgresql://sdcuser2:testing@13.59.2.110:5432/reservation';
+// // 'postgresql://localhost:5432/reservation';
+// console.log(connectionString);
+// const pool = new pg.Pool({ connectionString });
 
 const pool = new pg.Pool({
   user: 'sdcuser2',
