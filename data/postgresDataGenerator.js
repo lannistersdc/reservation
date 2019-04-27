@@ -3,7 +3,7 @@ const fs = require('fs');
 const path = require('path');
 
 let reservationData = fs.createWriteStream(
-  path.resolve(__dirname, './postgresDatatest.csv')
+  path.resolve(__dirname, './postgresData.csv')
 );
 
 /*
