@@ -17,8 +17,7 @@ server.use('/api', router);
 server.use(
   '/loaderio-829903ea44142be827d190595de1caaf/',
   (req, res) => {
-    console.log('im in here');
-    res.status(200).end('found it');
+    res.status(200).end('loaderio-829903ea44142be827d190595de1caaf');
   }
   // express.static(
   //   path.resolve(__dirname, '../loaderio-829903ea44142be827d190595de1caaf.txt')
