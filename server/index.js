@@ -14,15 +14,9 @@ server.use(cors());
 
 server.use('/', express.static(`${__dirname}/../public`));
 server.use('/api', router);
-server.use(
-  '/loaderio-829903ea44142be827d190595de1caaf/',
-  (req, res) => {
-    res.status(200).end('loaderio-829903ea44142be827d190595de1caaf');
-  }
-  // express.static(
-  //   path.resolve(__dirname, '../loaderio-829903ea44142be827d190595de1caaf.txt')
-  // )
-);
+server.use('/loaderio-a0bdbe05317715285c8f52bc4061ce32/', (req, res) => {
+  res.status(200).end('loaderio-a0bdbe05317715285c8f52bc4061ce32');
+});
 
 const port = process.env.PORT || 3002;
 
