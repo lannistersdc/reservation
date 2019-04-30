@@ -15,9 +15,9 @@ server.use(cors());
 server.use('/', express.static(`${__dirname}/../public`));
 server.use('/api', router);
 server.use(
-  '/loaderio-a6fb5510aac0d78cf6d1abe23cec0c56/',
+  '/loaderio-829903ea44142be827d190595de1caaf/',
   express.static(
-    path.resolve(__dirname, '../loaderio-a6fb5510aac0d78cf6d1abe23cec0c56')
+    path.resolve(__dirname, '../loaderio-829903ea44142be827d190595de1caaf')
   )
 );
 
