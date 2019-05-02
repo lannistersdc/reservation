@@ -1,6 +1,5 @@
 require('newrelic');
 const express = require('express');
-const morgan = require('morgan');
 const parser = require('body-parser');
 const cors = require('cors');
 const router = require('./router.js');
@@ -8,7 +7,6 @@ const path = require('path');
 
 const server = express();
 
-server.use(morgan('dev'));
 server.use(parser.json());
 server.use(parser.urlencoded({ extended: true }));
 server.use(cors());
