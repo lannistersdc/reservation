@@ -9,7 +9,7 @@ const path = require('path');
 
 const pool = new pg.Pool({
   user: 'sdcuser2',
-  host: '3.14.152.83',
+  host: '18.224.25.5',
   database: 'reservation',
   password: 'testing123',
   port: 5432
