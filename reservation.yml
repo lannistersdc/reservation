@@ -1,15 +1,15 @@
 config:
-  target: 'http://localhost:3002'
+  target: 'http://18.218.105.131:3002'
   phases:
-    - duration: 60
-      arrivalRate: 100
-    # - duration: 90
-    #   arrivalRate: 5
-    #   rampTo: 300
-    # - duration: 180
-    #   arrivalRate: 300
+    - duration: 30
+      arrivalRate: 5
+    - duration: 90
+      arrivalRate: 5
+      rampTo: 200
+    - duration: 120
+      arrivalRate: 200
 scenarios:
   - flow:
-      - loop:
-          - get:
-              url: '/api/reservation/id/{{$randomNumber(1,10000000)}}'
+      # - loop:
+      - get:
+          url: '/api/reservation/id/{{$randomNumber(1,10000000)}}'
